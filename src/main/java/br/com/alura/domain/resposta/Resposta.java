@@ -36,4 +36,29 @@ public class Resposta {
 
     private String solucao;
 
+    public Long getId(){
+        return id;
+    }
+
+    public String getMensagem(){
+        return mensagem;
+    }
+
+    public Topico getTopico(){
+        return topico;
+    }
+
+    public LocalDateTime getDataCriacao(){
+        return dataCriacao;
+    }
+
+    public Usuario getUsuario(){
+        return usuario;
+    }
+
+    public String getSolucao(){
+        return solucao;
+    }
+
+
 }

@@ -5,6 +5,7 @@ import br.com.alura.domain.resposta.Resposta;
 import br.com.alura.domain.usuario.Usuario;
 import jakarta.persistence.*;
 
+import java.lang.annotation.Repeatable;
 import java.time.LocalDateTime;
 
 public class Topico {
@@ -19,7 +20,7 @@ public class Topico {
 
     private LocalDateTime dataCriacao;
 
-    private String Status;
+    private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "autor_id")
@@ -33,5 +34,35 @@ public class Topico {
     @JoinColumn(name = "resposta_id")
     private Resposta resposta;
 
+    public Long getId(){
+        return id;
+    }
 
+    public String getTitulo(){
+        return titulo;
+    }
+
+    public String  getMensagem(){
+        return mensagem;
+    }
+
+    public LocalDateTime getDataCriacao(){
+        return dataCriacao;
+    }
+
+    public String getStatus(){
+        return status;
+    }
+
+    public Usuario getUsuario(){
+        return usuario;
+    }
+
+    public Curso getCurso(){
+        return curso;
+    }
+
+    public Resposta getResposta(){
+        return resposta;
+    }
 }

@@ -8,13 +8,18 @@ import java.time.LocalDateTime;
 public record CadastramentoTopico(
 
         Long id,
+
+        @NotNull
         String titulo,
+
+        @NotNull
         String mensagem,
 
         @NotNull
         @Future
         LocalDateTime data,
 
+        @NotNull
         String status,
 
         @NotNull
