@@ -34,6 +34,9 @@ public class Topico {
     @JoinColumn(name = "resposta_id")
     private Resposta resposta;
 
+    public Topico(String titulo, String mensagem, LocalDateTime data, String staus, Usuario usuario, Curso curso) {
+    }
+
     public Long getId(){
         return id;
     }

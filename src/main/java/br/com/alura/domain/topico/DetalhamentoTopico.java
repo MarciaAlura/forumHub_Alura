@@ -1,5 +1,8 @@
 package br.com.alura.domain.topico;
 
+import br.com.alura.domain.curso.CursoRepository;
+import br.com.alura.domain.usuario.UsuarioRepository;
+
 import java.time.LocalDateTime;
 
 public record DetalhamentoTopico(
@@ -27,4 +30,6 @@ public record DetalhamentoTopico(
                 );
 
     }
+
+
 }
