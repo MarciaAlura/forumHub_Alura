@@ -3,6 +3,9 @@ package br.com.alura.controller;
 import br.com.alura.domain.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -42,5 +45,12 @@ public class TopicoController {
         return ResponseEntity.ok(new DetalhamentoTopico(tp));
     }
 
+    @GetMapping
+    public ResponseEntity<Page<DadosListagemTopicos>> listar(@PageableDefault(size = 10, sort={"data"})Pageable paginacao){
+
+        var pagina = topicoRepository.findAllByAtivoTrue(paginacao).map(DadosListagemTopicos::new);
+
+        return ResponseEntity.ok(pagina);
+    }
 
 }
