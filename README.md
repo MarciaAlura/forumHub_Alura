@@ -1,6 +1,9 @@
 ## 💻 Sobre o projeto
 
-Desafio Challenge Back End! 
+Fórum Hub Challenge Back End
+Challenge Back End - Progamação T7 - ONE 
+Alura - Oracle
+
 Finalização de curso.
 
 ---
