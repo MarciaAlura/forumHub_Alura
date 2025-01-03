@@ -1,9 +1,6 @@
 package br.com.alura.controller;
 
-import br.com.alura.domain.topico.CadastramentoTopico;
-import br.com.alura.domain.topico.ControleDeTopicos;
-import br.com.alura.domain.topico.DetalhamentoTopico;
-import br.com.alura.domain.topico.TopicoRepository;
+import br.com.alura.domain.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +31,16 @@ public class TopicoController {
         return ResponseEntity.ok(new DetalhamentoTopico(tp));
 
     }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoTopicos dados){
+        var tp = topicoRepository.getReferenceById(dados.id());
+
+        tp.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DetalhamentoTopico(tp));
+    }
+
 
 }

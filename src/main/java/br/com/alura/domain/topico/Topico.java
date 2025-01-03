@@ -4,6 +4,7 @@ import br.com.alura.domain.curso.Curso;
 import br.com.alura.domain.resposta.Resposta;
 import br.com.alura.domain.usuario.Usuario;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 
 import java.lang.annotation.Repeatable;
 import java.time.LocalDateTime;
@@ -67,5 +68,16 @@ public class Topico {
 
     public Resposta getResposta(){
         return resposta;
+    }
+
+    public void atualizarInformacoes(@Valid DadosAtualizacaoTopicos dados) {
+
+        if(dados.titulo() != null){
+            this.titulo=dados.titulo();
+        }
+
+        if(dados.mensagem() != null){
+            this.mensagem=dados.mensagem();
+        }
     }
 }
