@@ -17,6 +17,7 @@ public class TopicoController {
     @Autowired
     private ControleDeTopicos topico;
 
+    @Autowired
     private TopicoRepository topicoRepository;
 
     @PostMapping
@@ -51,6 +52,19 @@ public class TopicoController {
         var pagina = topicoRepository.findAllByAtivoTrue(paginacao).map(DadosListagemTopicos::new);
 
         return ResponseEntity.ok(pagina);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity apagar(@PathVariable Long id){
+
+//       // var tp =topicoRepository.getReferenceById(id);
+//       //tp.apagar();
+
+        topicoRepository.deleteById(id);
+
+        return  ResponseEntity.noContent().build();
+
     }
 
 }
